@@ -123,15 +123,27 @@ function hexToRgb(hex){
 
 function clearScreen(){
 	background(BACKGROUNDCOLOR[0],BACKGROUNDCOLOR[1],BACKGROUNDCOLOR[2]);
-	if(hexKekColor != lasthexKekColor){
-		KEKCOLOR = hexToRgb(hexKekColor);
-		lasthexKekColor = hexKekColor;
+	//console.log("laser:" + laserColor + ", last laser: "+lastLaserColor);
+	if(KekColor != lasthexKekColor){
+		KEKCOLOR = hexToRgb(KekColor);
+		lasthexKekColor = KekColor;
 	}
 
 	if(laserColor != lastLaserColor){
-		LASERCOLOR = hexToRgb(hexKekColor);
-		laserColor = lastLaserColor;
+		LASERCOLOR = hexToRgb(laserColor);
+		lastLaserColor = laserColor;
 	}
+
+	if(EnemyColor != lastEnemyColor){
+		ENEMYCOLOR = hexToRgb(EnemyColor);
+		lastEnemyColor = EnemyColor;
+	}
+
+	if(BackgroundColor != lastBackgroundColor){
+		BACKGROUNDCOLOR = hexToRgb(BackgroundColor);
+		lastBackgroundColor = BackgroundColor;
+	}
+
 	// if(hexKekColor != lasthexKekColor){
 	// 	KEKCOLOR = hexToRgb(hexKekColor);
 	// 	lasthexKekColor = hexKekColor;
@@ -148,6 +160,14 @@ function creditsScreen(){
 }
 
 function settingsScreen(){
+
 	//gui.show();
 	clearScreen();
+	settingsAnimationPreview();
+}
+
+
+function settingsAnimationPreview(){
+	previewKek.show();
+	spawnPreview();
 }

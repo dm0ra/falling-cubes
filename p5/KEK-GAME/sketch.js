@@ -32,7 +32,7 @@ var creditsButton;
 var BACKGROUNDCOLOR = [0,30,200];
 var TITLETEXTCOLOR = [0,255,0];
 var KEKCOLOR = [0,255,0];
-var BALLCOLOR = [0,255,0];
+var ENEMYCOLOR = [0,255,0];
 var LASERCOLOR = [0,255,0];
 var UPFLAG = 0, DOWNFLAG = 0, RIGHTFLAG = 0, LEFTFLAG = 0, ENTERFLAG = 0;
 var buttonHighlight = 0;
@@ -40,12 +40,20 @@ var titleButton;
 var SFLAG = 0;
 var test = 0;
 var gui;
+kekSpeed = 5.5;
+var loops = 0;
+var recty = -65;
+lasery = 600-kh*1.5;
 
 
-var hexKekColor = "#eeee00";
-var lasthexKekColor = "#eeee00";
-var laserColor = "#eeee00";
-var lastLaserColor = "#eeee00";
+var KekColor = "#00ff00";
+var lasthexKekColor = "#00ff00";
+var laserColor = "#00ff00";
+var lastLaserColor = "#00ff00";
+var EnemyColor = "#00ff00";
+var lastEnemyColor = "#00ff00";
+var BackgroundColor = "#0000ff";
+var lastBackgroundColor = "#0000ff";
 
 //var mainGUI;
 
@@ -63,8 +71,8 @@ function setup()
 	setupKek(drawK[0]);
 	//saveStrings(buttonText, 'highscores.txt');
 	gui = createGui('settings');
-	gui.addGlobals('laserColor', 'hexKekColor');
-	gui.setSize(10, 5);
+	gui.addGlobals('KekColor', 'laserColor','EnemyColor', 'BackgroundColor');
+	//gui.setSize(10, 5);
 	gui.hide();
 
 	// gui.setWidth(10);
@@ -181,7 +189,8 @@ function drawGameOver(over)
 function setupKek(drawK)
 {
 
-	k = new kek(Math.floor(Math.random()*(width-kw)), Math.floor(Math.random()*(height-kh)),kw, kh, 5);
+	k = new kek(Math.floor(Math.random()*(width-kw)), Math.floor(Math.random()*(height-kh)),kw, kh, 5, KEKCOLOR);
+	previewKek = new kek( (550) , (600), kw, kh, 5, KEKCOLOR);
 }
 
 
@@ -274,7 +283,7 @@ function keyPressed()
 			drawK[0] = true;
 			drawK[1] = true;
 			loopCount = 0;
-			hexToRgb(hexKekColor);
+			hexToRgb(KekColor);
 
 			for(var i =0;i<lasers.length;i++){
 				lasers.splice(i,1);
@@ -327,7 +336,7 @@ function keyPressed()
 		default:
 	}
 	if(keyCode === 75){
-		console.log('yeeeet');
+		//console.log('yeeeet');
 		drawK[1] = true;
 		drawK[0] = true;
 	}

@@ -1,12 +1,13 @@
 
 
-function kek(locx, locy, kw, kh, speed)
+function kek(locx, locy, kw, kh, speed, kcolor)
 {
 	this.x = locx;
 	this.y = locy;
 	this.speed = speed;
 	this.kw = kw;
 	this.kh = kh;
+	this.color = kcolor;
 
 	this.move = function()
 	{
@@ -34,6 +35,13 @@ function kek(locx, locy, kw, kh, speed)
 		{
 			this.y += g;
 		}
+	}
+
+	this.show = function(){
+		background(BACKGROUNDCOLOR[0],BACKGROUNDCOLOR[1],BACKGROUNDCOLOR[2]);
+		fill(KEKCOLOR[0],KEKCOLOR[1],KEKCOLOR[2]);
+		strokeWeight(1);
+		ellipse(this.x,this.y,kw,kh);
 	}
 
 	
@@ -75,7 +83,7 @@ function ball()
 	ballCount++;
 	this.ballShow = function()
 	{
-		fill(255,180,0);
+		fill(ENEMYCOLOR[0],ENEMYCOLOR[1],ENEMYCOLOR[2]);
 		if(this.rounded === 1)
 		{
 			rect(this.x,this.y,this.radius,this.radius,this.radius/4);
@@ -148,5 +156,29 @@ function spawnBalls()
 				ballsSpawned++;
 			}
 		}
+	}
+}
+
+function spawnPreview(){
+	//console.log();
+	loopCount++;
+	rectx = previewKek.x - previewKek.kw;
+	recty += g;
+
+	laserx = previewKek.x-5;
+	lasery -= 3;
+	console.log(laserColor);
+
+	fill(ENEMYCOLOR[0],ENEMYCOLOR[1],ENEMYCOLOR[2]);
+	rect((rectx) , (recty),60,60,60/4);
+
+	fill(LASERCOLOR[0], LASERCOLOR[1], LASERCOLOR[2]);
+	rect(laserx, lasery, kw/3, kh);
+
+	if(lasery <= (recty + 63))
+	{
+		loopCount = 0;
+		recty = -65;
+		lasery =600-kh*1.5;
 	}
 }
