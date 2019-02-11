@@ -205,3 +205,8 @@ function highscoreScreen()
 	textSize(50);
 	text("Under Construction",width/2,height/2);
 }
+
+function gameSelectScreen(){
+	clearScreen();
+	
+}

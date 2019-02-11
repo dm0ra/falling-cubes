@@ -57,10 +57,7 @@ var lastBackgroundColor = "#0000ff";
 
 //var mainGUI;
 
-function preload()
-{
-	//img = loadImage('heart1.jpg');
-}
+
 
 function setup()
 {
@@ -83,6 +80,7 @@ function setup()
 function draw() 
 {
 	//console.log(KEKCOLOR[0] + ","+ KEKCOLOR[1] + "," + KEKCOLOR[2]);
+	//preload();
 	switch(state){
 
 		case 0:
