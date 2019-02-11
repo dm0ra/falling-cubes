@@ -167,7 +167,7 @@ function spawnPreview(){
 
 	laserx = previewKek.x-5;
 	lasery -= 3;
-	console.log(laserColor);
+	//console.log(laserColor);
 
 	fill(ENEMYCOLOR[0],ENEMYCOLOR[1],ENEMYCOLOR[2]);
 	rect((rectx) , (recty),60,60,60/4);

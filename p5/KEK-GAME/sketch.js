@@ -97,7 +97,7 @@ function draw()
 		break;
 
 		case 2:
-
+		highscoreScreen();
 		break;
 
 		case 3:
@@ -234,7 +234,7 @@ function listen(level,k)
 			{
 				balls[j].rounded =0;
 				balls[j].radius-=1;
-				balls[j].x+=.5;
+				balls[j].x+=0.5;
 				balls[j].y-=balls[j].speed;
 				//console.log(ball[i].index, + " " + i);
 			}
@@ -310,7 +310,10 @@ function keyPressed()
 		break;
 
 		case 2:
-
+		if(keyCode === ESCAPE){
+			state = 0;
+			mainSetupFlag = 1;
+		}
 		break;
 
 		case 3:

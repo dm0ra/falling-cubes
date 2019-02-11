@@ -49,6 +49,11 @@ function mainScreen(){
 			break;
 			case 1:
 			buttonArray[1].highlight();
+			if(ENTERFLAG === 1){
+				state = 2;
+				
+				ENTERFLAG = 0;
+			}
 			break;
 			case 2:
 			if(ENTERFLAG === 1){
@@ -124,25 +129,25 @@ function hexToRgb(hex){
 function clearScreen(){
 	background(BACKGROUNDCOLOR[0],BACKGROUNDCOLOR[1],BACKGROUNDCOLOR[2]);
 	//console.log("laser:" + laserColor + ", last laser: "+lastLaserColor);
-	if(KekColor != lasthexKekColor){
-		KEKCOLOR = hexToRgb(KekColor);
-		lasthexKekColor = KekColor;
-	}
+	// if(KekColor != lasthexKekColor){
+	// 	KEKCOLOR = hexToRgb(KekColor);
+	// 	lasthexKekColor = KekColor;
+	// }
 
-	if(laserColor != lastLaserColor){
-		LASERCOLOR = hexToRgb(laserColor);
-		lastLaserColor = laserColor;
-	}
+	// if(laserColor != lastLaserColor){
+	// 	LASERCOLOR = hexToRgb(laserColor);
+	// 	lastLaserColor = laserColor;
+	// }
 
-	if(EnemyColor != lastEnemyColor){
-		ENEMYCOLOR = hexToRgb(EnemyColor);
-		lastEnemyColor = EnemyColor;
-	}
+	// if(EnemyColor != lastEnemyColor){
+	// 	ENEMYCOLOR = hexToRgb(EnemyColor);
+	// 	lastEnemyColor = EnemyColor;
+	// }
 
-	if(BackgroundColor != lastBackgroundColor){
-		BACKGROUNDCOLOR = hexToRgb(BackgroundColor);
-		lastBackgroundColor = BackgroundColor;
-	}
+	// if(BackgroundColor != lastBackgroundColor){
+	// 	BACKGROUNDCOLOR = hexToRgb(BackgroundColor);
+	// 	lastBackgroundColor = BackgroundColor;
+	// }
 
 	// if(hexKekColor != lasthexKekColor){
 	// 	KEKCOLOR = hexToRgb(hexKekColor);
@@ -163,6 +168,27 @@ function settingsScreen(){
 
 	//gui.show();
 	clearScreen();
+
+	if(KekColor != lasthexKekColor){
+		KEKCOLOR = hexToRgb(KekColor);
+		lasthexKekColor = KekColor;
+	}
+
+	if(laserColor != lastLaserColor){
+		LASERCOLOR = hexToRgb(laserColor);
+		lastLaserColor = laserColor;
+	}
+
+	if(EnemyColor != lastEnemyColor){
+		ENEMYCOLOR = hexToRgb(EnemyColor);
+		lastEnemyColor = EnemyColor;
+	}
+
+	if(BackgroundColor != lastBackgroundColor){
+		BACKGROUNDCOLOR = hexToRgb(BackgroundColor);
+		lastBackgroundColor = BackgroundColor;
+	}
+
 	settingsAnimationPreview();
 }
 
@@ -170,4 +196,12 @@ function settingsScreen(){
 function settingsAnimationPreview(){
 	previewKek.show();
 	spawnPreview();
+}
+
+function highscoreScreen()
+{
+	clearScreen();
+	textAlign(CENTER);
+	textSize(50);
+	text("Under Construction",width/2,height/2);
 }
